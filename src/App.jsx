@@ -54,7 +54,7 @@ export default function App() {
 
       <Footer />
 
-      <MobileActionBar />
+      {/* <MobileActionBar /> */}
       <FloatingWhatsApp />
 
       <SearchOverlay
