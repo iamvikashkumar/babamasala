@@ -5,14 +5,14 @@
 // =========================================================
 
 export const BUSINESS_CONFIG = {
-  brandName: 'YOUR BRAND NAME',
+  brandName: 'BABA MASALA',
   tagline: 'Authentic ingredients. Timeless flavours.',
 
   // Digits only, with country code, no + or spaces — used to build wa.me links
-  whatsapp: '91XXXXXXXXXX',
+  whatsapp: '+919848906612',
 
   // Used for tel: links — keep the + and digits
-  phone: '+91XXXXXXXXXX',
+  phone: '+919848906612',
 
   email: 'hello@yourbrand.example',
   address: 'YOUR BUSINESS ADDRESS, CITY, STATE, PIN CODE',
