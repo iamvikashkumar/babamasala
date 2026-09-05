@@ -20,9 +20,15 @@ html {
   }
 }
 
-body {
-  @apply bg-ivory text-ink font-body antialiased;
+html, body {
+  @apply bg-ivory;
   overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  @apply text-ink font-body antialiased;
+  position: relative;
 }
 
 ::selection {
