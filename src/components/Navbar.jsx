@@ -1,54 +1,61 @@
-import { useEffect, useState } from 'react'
-import { Search, Menu, X, Phone } from 'lucide-react'
-import { BUSINESS_CONFIG, PHONE_NUMBER } from '../data/config'
-import { generalWhatsAppLink, telLink } from '../utils/whatsapp'
-import WhatsAppIcon from './WhatsAppIcon'
+import { useEffect, useState } from "react";
+import { Search, Menu, X, Phone } from "lucide-react";
+import { BUSINESS_CONFIG, PHONE_NUMBER } from "../data/config";
+import { generalWhatsAppLink, telLink } from "../utils/whatsapp";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'Dry Fruits', href: '#dry-fruits' },
-  { label: 'Masalas', href: '#masalas' },
-  { label: 'Regional Specials', href: '#regional-specials' },
-  { label: 'Our Story', href: '#our-story' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: "Home", href: "#home" },
+  { label: "Dry Fruits", href: "#dry-fruits" },
+  { label: "Masalas", href: "#masalas" },
+  { label: "Regional Specials", href: "#regional-specials" },
+  { label: "Our Story", href: "#our-story" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar({ onSearchOpen }) {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = ''
-    }
-  }, [menuOpen])
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-ivory-soft/95 backdrop-blur border-b border-ink/10 transition-all duration-300 ${
-        scrolled ? 'py-2' : 'py-4'
+      className={`sticky top-0 z-40 bg-ivory-soft border-b border-ink/10 transition-all duration-300 ${
+        scrolled ? "py-2" : "py-4"
       }`}
+      style={{ backgroundColor: "#FAF4E8" }}
     >
       <nav
         className="max-w-content mx-auto container-px flex items-center justify-between"
         aria-label="Primary"
       >
-        <a href="#home" className="font-display text-xl sm:text-2xl text-forest tracking-tight">
+        <a
+          href="#home"
+          className="font-display text-xl sm:text-2xl text-forest tracking-tight"
+        >
           {BUSINESS_CONFIG.brandName}
         </a>
 
         <ul className="hidden lg:flex items-center gap-8 font-body text-sm text-ink-soft">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="hover:text-burgundy transition-colors">
+              <a
+                href={link.href}
+                className="hover:text-burgundy transition-colors"
+              >
                 {link.label}
               </a>
             </li>
@@ -107,7 +114,9 @@ export default function Navbar({ onSearchOpen }) {
       {/* Mobile menu */}
       <div
         className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
-          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         aria-hidden={!menuOpen}
       >
@@ -117,11 +126,14 @@ export default function Navbar({ onSearchOpen }) {
         />
         <div
           className={`absolute right-0 top-0 h-full w-[82%] max-w-sm bg-ivory-soft shadow-2xl transition-transform duration-300 ${
-            menuOpen ? 'translate-x-0' : 'translate-x-full'
+            menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
+          style={{ backgroundColor: "#FAF4E8" }}
         >
           <div className="flex items-center justify-between p-5 border-b border-ink/10">
-            <span className="font-display text-lg text-forest">{BUSINESS_CONFIG.brandName}</span>
+            <span className="font-display text-lg text-forest">
+              {BUSINESS_CONFIG.brandName}
+            </span>
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
@@ -163,5 +175,5 @@ export default function Navbar({ onSearchOpen }) {
         </div>
       </div>
     </header>
-  )
+  );
 }
